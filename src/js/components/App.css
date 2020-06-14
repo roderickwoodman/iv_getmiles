@@ -1,0 +1,134 @@
+* {
+    text-align: center;
+}
+
+#page-wrapper {
+    margin: 4rem;
+}
+
+#visual {
+    display: grid;
+    grid-template-columns: 8rem 1fr calc(100vw - 1fr);
+    grid-template-rows: 4rem auto 4rem;
+    grid-template-areas:
+        "reward-header category-membership-header ."
+        "rewards category-membership ."
+        "buttons buttons .";
+}
+
+#reward-list-header {
+    grid-area: reward-header;
+    border-bottom: 1px solid silver;
+}
+
+#reward-list {
+    grid-area: rewards;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.reward,
+.reward-spacer,
+.category .name {
+    margin: 0.5rem 0;
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-top: 1px solid transparent;
+}
+
+.reward,
+.reward-spacer {
+    border-bottom: 1px solid transparent;
+}
+
+.category .name {
+    flex: 0 0 auto;
+    border-bottom: 1px solid silver;
+}
+
+.reward {
+    position: relative;
+    flex: 0 0 auto;
+    color: black;
+    background-color: yellow;
+    border: 1px solid silver;
+}
+
+.reward:hover,
+button:hover {
+    cursor: pointer;
+}
+
+.reward-spacer:not(.targeting) {
+    visibility: hidden;
+    position: relative;
+    flex: 0 0 auto;
+    color: transparent;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+.reward-spacer.targeting {
+    visibility: visible;
+    color: transparent;
+    border: 1px dashed red;
+}
+
+.category.targeting {
+    background-color: lightpink;
+}
+
+.category.targeting .reward-spacer.targeting {
+    background-color: red;
+}
+
+#category-membership-header {
+    grid-area: category-membership-header;
+    border-bottom: 1px solid silver;
+}
+
+#category-membership {
+    grid-area: category-membership;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+#category-membership > .category {
+    border-left: 1px solid silver;
+}
+
+#category-membership > .category:last-child {
+    border-right: 1px solid silver;
+}
+
+#button-group {
+    grid-area: buttons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-group > * {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.reward button {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
